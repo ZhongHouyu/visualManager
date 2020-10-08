@@ -55,6 +55,14 @@ namespace WpfApp1
         }
         private void Button_Click_selectAlgorithm(object sender, RoutedEventArgs e)
         {
+            
+            //未设置大小
+            //win.Content = new Page1();
+            //宿主大小大于Page尺寸
+            //win.Content = new Page1(300,300,500,500);
+            //宿主大小小于Page尺寸
+            AlgorithmSelectWindow algorithmSelectWindow = new AlgorithmSelectWindow();
+            algorithmSelectWindow.Show();
 
         }
     }
