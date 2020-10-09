@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -40,10 +41,11 @@ namespace WpfApp1
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MINIST_Tester mINIST_Tester = new MINIST_Tester();
-            double[] score = mINIST_Tester.MNIST_test();
-            
-            MessageBox.Show($"{score[0]}");
+            //MINIST_Tester mINIST_Tester = new MINIST_Tester();
+            //double[] score = mINIST_Tester.MNIST_test();
+
+            //MessageBox.Show($"{score[0]}");
+            MessageBox.Show("test start");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -64,6 +66,10 @@ namespace WpfApp1
             //关闭流
             sw.Close();
             fs.Close();
+            (this.Owner as MainWindow).image_show.Visibility = Visibility.Visible;
+            (this.Owner as MainWindow).image_show.Source = (this.Owner as MainWindow).Image1.Source;
+
+
             this.Close();
 
         }
