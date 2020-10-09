@@ -23,8 +23,18 @@
         <Button  Grid.Column="0" Grid.Row="0"  VerticalAlignment="Top" Click="Button_Click_addData">导入数据</Button>
         <Button  Grid.Column="1" Grid.Row="0" Click="Button_Click_selectAlgorithm">选择算法</Button>
         <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center">结果展示</TextBlock>
-        <Image Name="Image1"  HorizontalAlignment="Center" Grid.Column="0" Height="auto" 
+        <Image Name="Image1" x:FieldModifier="public" HorizontalAlignment="Center" Grid.Column="0" Height="auto" 
                Margin="15,30,0,10" VerticalAlignment="Center" Grid.Row="1" Width="auto" />
+        <Grid x:Name="grid_show" Grid.Row="1" Grid.Column="2" Background="AliceBlue" Margin="20,20,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image  Name="image_show" Width="auto" Height="auto" Visibility="Collapsed" x:FieldModifier="public"/>
+        </Grid>
+        
 
     </Grid>
 </Window>

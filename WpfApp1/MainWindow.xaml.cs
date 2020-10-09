@@ -62,8 +62,13 @@ namespace WpfApp1
             //win.Content = new Page1(300,300,500,500);
             //宿主大小小于Page尺寸
             AlgorithmSelectWindow algorithmSelectWindow = new AlgorithmSelectWindow();
+            algorithmSelectWindow.Owner = this;
             algorithmSelectWindow.Show();
 
+        }
+        public void change_grid_show_visibility()
+        {
+            this.grid_show.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }
