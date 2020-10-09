@@ -50,25 +50,18 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string p = "D://data//test//data.txt";
-            FileStream fs = new FileStream(p, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            //开始写入
             decimal c = decimal.Parse(width.Text);
             int w = (int)c;
             c = decimal.Parse(lenth.Text);
             int l = (int)c;
-            sw.Write(w);
-            sw.Write('\n');
-            sw.Write(l);
-            //清空缓冲区
-            sw.Flush();
-            //关闭流
-            sw.Close();
-            fs.Close();
+            string picture = (this.Owner as MainWindow).Image1.Source.ToString();
+
+            Reshaper reshaper = new Reshaper(w,l);
+            reshaper.ReshapePicture(picture, w, l);
+
+
             (this.Owner as MainWindow).image_show.Visibility = Visibility.Visible;
             (this.Owner as MainWindow).image_show.Source = (this.Owner as MainWindow).Image1.Source;
-
 
             this.Close();
 

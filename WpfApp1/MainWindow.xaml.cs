@@ -34,6 +34,8 @@ namespace WpfApp1
             {
                 Filter = "图像文件|*.jpg;*.png;*.jpeg;*.bmp;*.gif|所有文件|*.*"
             };
+            
+
             openFileDialog.InitialDirectory = @"C:\Users\Administrator\Desktop";//文件选择的默认路径
             try
             {
