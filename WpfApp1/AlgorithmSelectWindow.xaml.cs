@@ -41,11 +41,11 @@ namespace WpfApp1
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //MINIST_Tester mINIST_Tester = new MINIST_Tester();
-            //double[] score = mINIST_Tester.MNIST_test();
+            MINIST_Tester mINIST_Tester = new MINIST_Tester();
+            double[] score = mINIST_Tester.MNIST_test();
 
-            //MessageBox.Show($"{score[0]}");
-            MessageBox.Show("test start");
+            MessageBox.Show($"loss:{score[0]},acc:{score[1]}");
+            //MessageBox.Show("test start");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
