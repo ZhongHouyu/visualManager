@@ -30,11 +30,11 @@ namespace WpfApp1
         public void ReshapePicture(string picture,int width,int lenth) 
         {
             string str2 = System.IO.Directory.GetCurrentDirectory();
-            string p = "D://data//test//data.txt";
-            FileStream fs = new FileStream(p, FileMode.Create);
+            string p = str2 + "\\data.txt";
+            FileInfo fileInfo = new FileInfo(p);
+            FileStream fs = new FileStream(fileInfo.Name, FileMode.OpenOrCreate);
             StreamWriter sw = new StreamWriter(fs);
             //开始写入
-            
             sw.Write(width);
             sw.Write('\n');
             sw.Write(lenth);
@@ -43,7 +43,11 @@ namespace WpfApp1
             //关闭流
             sw.Close();
             fs.Close();
-            
+
+
+
+
+
 
         }
 
