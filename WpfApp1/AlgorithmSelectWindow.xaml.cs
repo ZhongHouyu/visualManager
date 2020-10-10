@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OpenCvSharp;
+using OpenCvSharp.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,7 +22,7 @@ namespace WpfApp1
     /// <summary>
     /// AlgorithmSelectWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class AlgorithmSelectWindow : Window
+    public partial class AlgorithmSelectWindow : System.Windows.Window
     {
         public AlgorithmSelectWindow()
         {
@@ -56,9 +58,9 @@ namespace WpfApp1
             int l = (int)c;
             string picture = (this.Owner as MainWindow).Image1.Source.ToString();
 
-            Reshaper reshaper = new Reshaper(w,l);
-            reshaper.ReshapePicture(picture, w, l);
-
+            //Reshaper reshaper = new Reshaper(w,l);
+            //ImageSource dst = reshaper.ReshapePicture(picture, w, l);
+            
 
             (this.Owner as MainWindow).image_show.Visibility = Visibility.Visible;
             (this.Owner as MainWindow).image_show.Source = (this.Owner as MainWindow).Image1.Source;

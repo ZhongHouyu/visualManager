@@ -5,7 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using Tensorflow;
+using Tensorflow ;
+using OpenCvSharp;
+using Numpy;
+using System.Windows.Media;
+using System.Drawing;
 
 namespace WpfApp1
 {
@@ -27,10 +31,11 @@ namespace WpfApp1
         {
             return this.new_lenth;
         }
-        public void ReshapePicture(string picture,int width,int lenth) 
+        public ImageSource ReshapePicture(string picture,int width,int lenth) 
         {
             string str2 = System.IO.Directory.GetCurrentDirectory();
             string p = str2 + "\\data.txt";
+            //记录
             FileInfo fileInfo = new FileInfo(p);
             FileStream fs = new FileStream(fileInfo.Name, FileMode.OpenOrCreate);
             StreamWriter sw = new StreamWriter(fs);
@@ -43,8 +48,18 @@ namespace WpfApp1
             //关闭流
             sw.Close();
             fs.Close();
-
-
+            //修改图片大小
+            var img_origin = Cv2.ImRead(picture, ImreadModes.Color);
+            //Mat img_origin = new Mat(picture, ImreadModes.Color);
+            Mat dst = new Mat();
+            OpenCvSharp.Size size = new OpenCvSharp.Size(lenth, width);
+            Cv2.Resize(img_origin, dst, size); 
+            Bitmap bitmap = new Bitmap(dst.Cols, dst.Rows, (int)dst.Step(),System.Drawing.Imaging.PixelFormat.Format32bppArgb, dst.Data);
+            bitmap.Save(str2 + "data.bmp");
+            ImageSourceConverter imageSourceConverter = new ImageSourceConverter();
+            ImageSource imageSource = (ImageSource)imageSourceConverter.ConvertFrom(bitmap);
+            //ImageSource imageSource = (ImageSource)
+            return imageSource;
 
 
 
